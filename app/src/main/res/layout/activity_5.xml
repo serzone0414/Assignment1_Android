@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".Activity4">
+
+
+    <TextView
+        android:id="@+id/printPageTitle"
+        android:layout_width="match_parent"
+        android:textSize="30dp"
+        android:layout_marginTop="45dp"
+        android:textColor="@color/deep_orange"
+      android:layout_marginLeft="50dp"
+        android:autoSizeMaxTextSize="30dp"
+        android:layout_height="35dp"
+        android:text="Resident information" />
+
+    <TextView
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:text="Name: "
+        android:id="@+id/nm"
+        android:layout_below="@+id/printPageTitle"
+        android:layout_marginLeft="50dp"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/printFullName"
+        android:layout_toRightOf="@+id/nm"
+        android:layout_below="@+id/printPageTitle"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        />
+
+    <TextView
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:text="Age: "
+        android:id="@+id/age"
+        android:textStyle="bold"
+        android:layout_below="@+id/nm"
+        android:layout_marginLeft="50dp"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/printAge"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/nm"
+        android:layout_toRightOf="@+id/age"
+        android:textSize="20dp"
+        />
+
+    <TextView
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@+id/printAge"
+        android:text="BMI: "
+        android:textStyle="bold"
+        android:id="@+id/bmi"
+        android:layout_below="@+id/nm"
+        android:layout_marginLeft="60dp"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/bmi"
+        android:id="@+id/printBMI"
+        android:layout_below="@+id/nm"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        />
+
+    <TextView
+        android:layout_width="75dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:text="Gender: "
+        android:textStyle="bold"
+        android:id="@+id/gender"
+        android:layout_below="@+id/age"
+        android:layout_marginLeft="50dp"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/gender"
+        android:id="@+id/printGender"
+        android:layout_below="@+id/age"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        />
+
+    <Button
+        android:id="@+id/details"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="Details"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/deep_orange"
+        android:layout_marginTop="400dp"
+        tools:layout_editor_absoluteX="193dp"
+        tools:layout_editor_absoluteY="165dp" />
+
+    <Button
+        android:id="@+id/questionair"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="Questionnaire"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/deep_orange"
+        android:layout_below="@+id/details"
+        android:layout_marginTop="40dp"
+        tools:layout_editor_absoluteX="193dp"
+        tools:layout_editor_absoluteY="165dp" />
+
+
+</RelativeLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".Register">
+
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar"
+        />
+    <ImageView
+        android:id="@+id/logoImage2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="85dp"
+        android:src="@drawable/images2"
+        android:contentDescription="TODO" />
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter new username"
+        android:id="@+id/newUserName"
+        android:layout_marginTop="90dp"
+        android:maxLines="1"
+        android:layout_below="@+id/logoImage2"
+        android:layout_centerHorizontal="true"
+        >
+    </EditText>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter new password"
+        android:id="@+id/newPassWord"
+        android:maxLines="1"
+        android:layout_marginTop="30dp"
+        android:inputType="textPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/newUserName"
+        >
+    </EditText>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:backgroundTint="@color/deep_orange"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/ReturnButton"
+        android:width="200dp"
+        android:height="10dp"
+        android:layout_below="@id/newPassWord"
+        android:layout_marginTop="50dp"
+        />
+
+</RelativeLayout>

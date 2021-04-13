@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".Activity2">
+
+
+    <Button
+        android:id="@+id/newResident"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="New Resident"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/deep_orange"
+        android:layout_marginTop="150dp"
+        tools:layout_editor_absoluteX="193dp"
+        tools:layout_editor_absoluteY="165dp" />
+
+    <Button
+        android:id="@+id/existResident"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="Current Resident"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/newResident"
+        android:backgroundTint="@color/deep_orange"
+        android:layout_marginTop="100dp"
+        tools:layout_editor_absoluteX="193dp"
+        tools:layout_editor_absoluteY="165dp" />
+
+</RelativeLayout>
