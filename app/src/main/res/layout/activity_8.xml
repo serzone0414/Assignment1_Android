@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:id="@+id/activity8_Layout"
+    tools:context=".Activity8">
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="60dp"
+        android:id="@+id/score_text"
+        android:layout_alignParentRight="true"
+        android:text="0"
+        android:textSize="20sp"></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Result"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="90dp"
+        android:textColor="@color/black"></TextView>
+
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="480dp"
+        android:layout_marginTop="170dp"
+        android:textStyle="bold"
+        android:textColor="@color/grey"
+        android:textSize="24sp"
+        android:padding="8dp"
+        android:layout_marginBottom="40dp"
+        android:id="@+id/result_txt"></TextView>
+
+
+</RelativeLayout>

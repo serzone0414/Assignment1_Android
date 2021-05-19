@@ -18,7 +18,10 @@ public class Calculation {
     public static double bmiCalculator(double weight, double height)
     {
         DecimalFormat df = new DecimalFormat("#.##");
-        String dx=df.format(weight/((height/100)*(height/100)));
+
+        double heightInMetre = height / 100;
+        double squareHeight= heightInMetre * heightInMetre;
+        String dx=df.format(weight / squareHeight);
         double bmi = Double.valueOf(dx);;
         return bmi;
     }

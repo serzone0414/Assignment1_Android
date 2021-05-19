@@ -1,14 +1,599 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/activity6_Layout"
     tools:context=".Activity6">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:text="This is activity for Details, it will be developed at later phase."/>
-</RelativeLayout>
+        android:background="@color/liteBlue"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/residentDetailsTitle"
+            android:layout_width="wrap_content"
+            android:textSize="30dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
+            android:layout_height="50dp"
+            android:textStyle="bold"
+            android:text="Resident Details" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp"
+            android:text="GP detail:"
+            android:textStyle="bold"
+            android:id="@+id/gp"
+            android:layout_below="@+id/residentDetailsTitle"
+            android:textColor="@color/black"
+            android:inputType="text"
+            android:layout_marginLeft="05dp"
+            android:textSize="20dp"/>
+
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_below="@+id/gp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/et_gp"
+            android:padding="10dp"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxHeight="100dp"
+            android:maxLength="2000"
+            android:maxLines="4"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/grey"
+            android:background="@color/white"
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="05dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="Medical history:   "
+            android:id="@+id/medicalHistory"
+            android:layout_below="@+id/et_gp"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_below="@+id/medicalHistory"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_medicalHistory"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:textColor="@color/grey"
+            android:backgroundTint="@color/white"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxHeight="100dp"
+            android:maxLength="2000"
+            android:maxLines="4"
+            android:padding="10dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="05dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="Food requirement:   "
+            android:id="@+id/food"
+            android:layout_below="@+id/et_medicalHistory"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_below="@+id/food"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_food"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:textColor="@color/grey"
+            android:backgroundTint="@color/white"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxHeight="100dp"
+            android:maxLength="2000"
+            android:maxLines="4"
+            android:padding="10dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="05dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="Allergies:   "
+            android:id="@+id/allergies"
+            android:layout_below="@+id/et_food"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_below="@+id/allergies"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_allergies"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:textColor="@color/grey"
+            android:backgroundTint="@color/white"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxHeight="100dp"
+            android:maxLength="2000"
+            android:maxLines="4"
+            android:padding="10dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:text="Current medication:   "
+            android:id="@+id/medication"
+            android:layout_below="@+id/et_allergies"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="05dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:layout_below="@+id/medication"
+            android:id="@+id/et_medication"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:textColor="@color/grey"
+            android:backgroundTint="@color/white"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxHeight="100dp"
+            android:maxLength="2000"
+            android:maxLines="4"
+            android:padding="10dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:text="Warfarin:   "
+            android:id="@+id/warfarin"
+            android:layout_below="@+id/et_medication"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="05dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:layout_below="@+id/warfarin"
+            android:id="@+id/et_warfarin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:textColor="@color/grey"
+            android:backgroundTint="@color/white"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxHeight="100dp"
+            android:maxLength="2000"
+            android:maxLines="4"
+            android:padding="10dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:text="Insulin:   "
+            android:id="@+id/insulin"
+            android:layout_below="@+id/et_warfarin"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="05dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:layout_below="@+id/insulin"
+            android:id="@+id/et_insulin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:textColor="@color/grey"
+            android:backgroundTint="@color/white"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxHeight="100dp"
+            android:maxLength="2000"
+            android:maxLines="4"
+            android:padding="10dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:text="Behaviours:   "
+            android:id="@+id/behaviours"
+            android:layout_below="@+id/et_insulin"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="05dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:layout_below="@+id/behaviours"
+            android:id="@+id/et_behaviours"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:textColor="@color/grey"
+            android:backgroundTint="@color/white"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxHeight="100dp"
+            android:maxLength="2000"
+            android:maxLines="4"
+            android:padding="10dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:text="Concerns:   "
+            android:id="@+id/concerns"
+            android:layout_below="@+id/et_behaviours"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="05dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:layout_below="@+id/concerns"
+            android:id="@+id/et_concerns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:textColor="@color/grey"
+            android:backgroundTint="@color/white"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxHeight="100dp"
+            android:maxLength="2000"
+            android:maxLines="4"
+            android:padding="10dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:text="Dentures:   "
+            android:id="@+id/dentures"
+            android:layout_below="@+id/et_concerns"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="05dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:layout_below="@+id/dentures"
+            android:id="@+id/et_dentures"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:textColor="@color/grey"
+            android:backgroundTint="@color/white"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxHeight="100dp"
+            android:maxLength="2000"
+            android:maxLines="4"
+            android:padding="10dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:text="Equipment:   "
+            android:id="@+id/equipment"
+            android:layout_below="@+id/et_dentures"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="05dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:layout_below="@+id/equipment"
+            android:id="@+id/et_equipment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:textColor="@color/grey"
+            android:backgroundTint="@color/white"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxHeight="100dp"
+            android:maxLength="2000"
+            android:maxLines="4"
+            android:padding="10dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:text="Cultural Consideration:   "
+            android:id="@+id/culturalConsideration"
+            android:layout_below="@+id/et_equipment"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="05dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:layout_below="@+id/culturalConsideration"
+            android:id="@+id/et_culturalConsideration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:textColor="@color/grey"
+            android:backgroundTint="@color/white"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxHeight="100dp"
+            android:maxLength="2000"
+            android:maxLines="4"
+            android:padding="10dp"
+            android:background="@color/white"/>
+        <TextView
+            android:text="Pain:   "
+            android:id="@+id/pain"
+            android:layout_below="@+id/et_culturalConsideration"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="05dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:layout_below="@+id/pain"
+            android:id="@+id/et_pain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:textColor="@color/grey"
+            android:backgroundTint="@color/white"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxHeight="100dp"
+            android:maxLength="2000"
+            android:maxLines="4"
+            android:padding="10dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:text="Falls:   "
+            android:id="@+id/falls"
+            android:layout_below="@+id/et_pain"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="05dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:layout_below="@+id/falls"
+            android:id="@+id/et_falls"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:textColor="@color/grey"
+            android:backgroundTint="@color/white"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxHeight="100dp"
+            android:maxLength="2000"
+            android:maxLines="4"
+            android:padding="10dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:text="Wound:   "
+            android:id="@+id/wound"
+            android:layout_below="@+id/et_falls"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="05dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:layout_below="@+id/wound"
+            android:id="@+id/et_wound"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:textColor="@color/grey"
+            android:backgroundTint="@color/white"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxHeight="100dp"
+            android:maxLength="2000"
+            android:maxLines="4"
+            android:padding="10dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:text="Assessors needed:   "
+            android:id="@+id/needAssessors"
+            android:layout_below="@+id/et_wound"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="05dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:layout_below="@+id/needAssessors"
+            android:id="@+id/et_needAssessors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:textColor="@color/grey"
+            android:backgroundTint="@color/white"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxHeight="100dp"
+            android:maxLength="2000"
+            android:maxLines="4"
+            android:padding="10dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:text="Family Contact:   "
+            android:id="@+id/EPOAfamilyContact"
+            android:layout_below="@+id/et_needAssessors"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="05dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:layout_below="@+id/EPOAfamilyContact"
+            android:id="@+id/et_EPOAfamilyContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:textColor="@color/grey"
+            android:backgroundTint="@color/white"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxHeight="100dp"
+            android:maxLength="2000"
+            android:maxLines="4"
+            android:padding="10dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:text="Leisure:   "
+            android:id="@+id/leisure"
+            android:layout_below="@+id/et_EPOAfamilyContact"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="05dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:layout_below="@+id/leisure"
+            android:id="@+id/et_leisure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:textColor="@color/grey"
+            android:backgroundTint="@color/white"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxHeight="100dp"
+            android:maxLength="2000"
+            android:maxLines="4"
+            android:padding="10dp"
+            android:background="@color/white"/>
+
+
+
+        <TextView
+            android:text="Pharmacy:   "
+            android:id="@+id/pharmacy"
+            android:layout_below="@+id/et_leisure"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="05dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:layout_below="@+id/pharmacy"
+            android:id="@+id/et_pharmacy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:textColor="@color/grey"
+            android:backgroundTint="@color/white"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxHeight="100dp"
+            android:maxLength="2000"
+            android:maxLines="4"
+            android:padding="10dp"
+            android:background="@color/white"/>
+
+
+        <Button
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_pharmacy"
+            android:text="Confirm"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="40dp"
+            android:backgroundTint="@color/purple_200"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/detailsConfirmButton"/>
+
+
+
+
+    </RelativeLayout>
+
+
+</ScrollView>

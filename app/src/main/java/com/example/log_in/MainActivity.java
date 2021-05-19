@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Executor;
 
 
@@ -28,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     TextView registerLink;
     Toolbar toolbar;
     Account demo = new Account("Admin","1234");
-    Account newAccount = new Account();
+
 
     @Override
     public boolean bindIsolatedService(Intent service, int flags, String instanceName, Executor executor, ServiceConnection conn) {
@@ -69,13 +68,14 @@ public class MainActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        newAccount = (Account) intent.getSerializableExtra("newAcount");
+        //newAccount = (Account) intent.getSerializableExtra("newAcount");
         registerLink = (TextView) findViewById(R.id.registerButton);
         loginButton = (Button) findViewById(R.id.button);
         Name = (EditText) findViewById(R.id.username);
         Password = (EditText) findViewById(R.id.password);
         toolbar = (Toolbar)findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
+
 
 
         registerLink.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 accessActivity2(Name.getText().toString(),Password.getText().toString());
-
+                //printAllAccounts();
             }
         });
     }
@@ -100,19 +100,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void accessActivity2(String userName, String userPassword) {
+        DbHandler dbHandler = new DbHandler(MainActivity.this);
+        dbHandler.addOne(demo);
+        List<Account> accountList = dbHandler.getAllAccounts();
+        boolean correctAccount = false;
 
-            if ((userName.equals(demo.getUsername()))&& (userName.equals(demo.getUsername())))
-            {
+        for (int i = 0; i < accountList.size(); i++) {
+            if (userName.equals(accountList.get(i).getUsername()) && (userPassword.equals(accountList.get(i).getPassword()))) {
                 Intent intent = new Intent(this, Activity2.class);
                 startActivity(intent);
-            }
-            else
-            {
-                Toast.makeText(MainActivity.this,"Wrong username / password", Toast.LENGTH_SHORT).show();
+                correctAccount = true;
             }
         }
+        if (correctAccount == false) {
+            Toast.makeText(MainActivity.this, "Wrong username / password", Toast.LENGTH_SHORT).show();
+        } else{Toast.makeText(MainActivity.this, "Welcome" , Toast.LENGTH_SHORT).show();}
+    }
 
 
+        private void printAllAccounts ()
+        {
+            DbHandler dbHandler = new DbHandler(MainActivity.this);
+            List<Account> accountList = dbHandler.getAllAccounts();
+            for(int i = 0 ; i < accountList.size(); i ++)
+            {
+                Toast.makeText(MainActivity.this, accountList.get(i).getUsername(), Toast.LENGTH_SHORT).show();
 
+            }
+
+        }
     }
 

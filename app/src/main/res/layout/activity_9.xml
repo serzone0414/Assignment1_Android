@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:id="@+id/activity9_Layout"
+    tools:context=".Activity9">
+
+
+        <TextView
+            android:id="@+id/noteTitle"
+            android:layout_width="wrap_content"
+            android:textSize="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:textColor="@color/black"
+            android:layout_height="50dp"
+            android:textStyle="bold"
+            android:text="Note" />
+
+
+
+        <EditText
+            android:layout_below="@+id/noteTitle"
+            android:id="@+id/et_note"
+            android:layout_width="300dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="350dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:textColor="@color/grey"
+            android:hint="Write a note base on this resident"
+            android:backgroundTint="@color/white"
+            android:inputType="textCapSentences|textMultiLine"
+            android:singleLine="false"
+            android:maxEms="60"
+            android:maxLength="200"
+            android:maxLines="7"
+            android:padding="10dp"
+            android:background="@color/white"/>
+
+
+        <Button
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_note"
+            android:text="Create PDF"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="40dp"
+            android:backgroundTint="@color/lite_orange"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/createPdfButton"/>
+
+    </RelativeLayout>

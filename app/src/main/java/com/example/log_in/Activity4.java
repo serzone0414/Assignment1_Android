@@ -5,19 +5,20 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Activity4 extends AppCompatActivity {
     ListView listView;
-    ArrayList<Resident> residentArrayList;
+    //ResidentDbHandler residentDbHandler = new ResidentDbHandler(Activity4.this);
+    DbHandler dbHandler = new DbHandler(Activity4.this);
+    List<Resident> residentArrayList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +30,11 @@ public class Activity4 extends AppCompatActivity {
         getSupportActionBar().setTitle("Resident list");
 
         // get the Class object from the other activity
-        Intent intent = getIntent();
-        residentArrayList = (ArrayList<Resident>) intent.getSerializableExtra("resident");
+        //Intent intent = getIntent();
+        //residentArrayList = (ArrayList<Resident>) intent.getSerializableExtra("resident");
+
+        List<Resident> residentArrayList = dbHandler.getAllResidents();
+
         ArrayList<String> nameList = new ArrayList<>();
         listView = (ListView) findViewById(R.id.listView);
 
@@ -45,12 +49,12 @@ public class Activity4 extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
-                accessActivity5(i);
+                accessActivity5(residentArrayList,i);
             }
 
         });
     }
-    public void accessActivity5(int i) {
+    public void accessActivity5(List<Resident> residentArrayList,int i) {
         Intent intent = new Intent (this, Activity5.class);
         Resident resident = residentArrayList.get(i);
         intent.putExtra("resident", resident);

@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
+    android:id="@+id/activity3_Layout"
     android:background="@drawable/background"
     tools:context=".Activity3">
 
@@ -84,19 +85,29 @@
         android:textSize="20dp"/>
 
 
-    <EditText
+    <TextView
         android:layout_width="170dp"
         android:layout_height="40dp"
         android:id="@+id/et_DOB"
-        android:hint="e.g. 17/02/1987"
         android:layout_toRightOf="@+id/dob"
         android:layout_below="@+id/et_lastName"
         android:maxLines="1"
         android:padding="10dp"
+        android:textSize="18dp"
         android:layout_gravity="center"
-        android:inputType="date"
         android:layout_marginTop="20dp"
+        android:textColor="@color/black"
         android:background="@color/white"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/calendaricon"
+        android:layout_toRightOf="@+id/dob"
+        android:layout_below="@+id/et_lastName"
+        android:layout_marginTop="19dp"
+        android:layout_marginLeft="125dp"
+        android:id="@+id/datePickerButton"/>
 
     <TextView
         android:layout_width="120dp"

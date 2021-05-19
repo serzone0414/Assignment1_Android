@@ -10,5 +10,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="light_green">#6ECC72</color>
     <color name="lite_orange">#F4DA8A</color>
+    <color name="very_deep_orange">#E48800</color>
+    <color name="red">#F4584D</color>
     <color name="deep_orange">#FBAA32</color>
+    <color name="liteBlue">#BEEDF3</color>
+    <color name="deep_blue">#077BF4</color>
+    <color name="deep_green">#4CAF50</color>
 </resources>

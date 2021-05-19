@@ -17,6 +17,8 @@ public class Register extends AppCompatActivity {
     EditText newUserName, newPassWord;
     Button returnButton;
     Account newAcount = new Account();
+    DbHandler dbHandler = new DbHandler(Register.this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,19 +47,32 @@ public class Register extends AppCompatActivity {
                     Toast.makeText(Register.this,"Password is empty", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    accessActivity2();
+                    accessActivity2(newAcount);
                 }
             }
         });
 
     }
 
-    private void accessActivity2() {
+    private void accessActivity2(Account newAcount) {
         newAcount.setUsername(newUserName.getText().toString());
         newAcount.setPassword(newPassWord.getText().toString());
-        Intent intent = new Intent(this, Activity2.class);
-        intent.putExtra("newAcount", newAcount);
+
+        //database building
+
+        try {
+
+            boolean success = dbHandler.addOne(newAcount);
+            Toast.makeText(Register.this, "New acount created", Toast.LENGTH_SHORT).show();
+        }
+        catch (Exception e){
+            Toast.makeText(Register.this, "Error creating customer", Toast.LENGTH_SHORT).show();
+            Account failedAccount = new Account("Error","Error");
+            dbHandler.addOne(failedAccount);
+
+        }
+
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-        Toast.makeText(Register.this,"New acount created", Toast.LENGTH_SHORT).show();
     }
 }

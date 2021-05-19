@@ -2,6 +2,7 @@ package com.example.log_in;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -9,23 +10,26 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Calendar;
 
-public class Activity3 extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class Activity3 extends AppCompatActivity implements AdapterView.OnItemSelectedListener, DatePickerDialog.OnDateSetListener {
 
     //Initialize Vairable
-    EditText etFirstName, etLastName, etDOB, etWeight ,etHeight;
+    EditText etFirstName, etLastName, etWeight ,etHeight;
+    TextView etDOB;
     Button submitButton;
-    ArrayList<Resident> residentArrayList;
+    //ArrayList<Resident> residentArrayList;
     Spinner et_Gender;
     String genderString;
+    //ResidentDbHandler residentDbHandler = new ResidentDbHandler(Activity3.this);
+    DbHandler dbHandler = new DbHandler(Activity3.this);
 
 
     @Override
@@ -33,13 +37,13 @@ public class Activity3 extends AppCompatActivity implements AdapterView.OnItemSe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_3);
 
-        Intent intent = getIntent();
-        residentArrayList = (ArrayList<Resident>) intent.getSerializableExtra("resident");
+       // Intent intent = getIntent();
+        //residentArrayList = (ArrayList<Resident>) intent.getSerializableExtra("resident");
 
         //Assign Variable
         etFirstName = findViewById(R.id.et_firstName);
         etLastName = findViewById( R.id.et_lastName);
-        etDOB = findViewById(R.id.et_DOB);
+        etDOB = (TextView) findViewById(R.id.et_DOB);
         etWeight = findViewById(R.id.et_weight);
         etHeight = findViewById(R.id.et_height);
         submitButton = (Button) findViewById(R.id.submitButton);
@@ -48,6 +52,13 @@ public class Activity3 extends AppCompatActivity implements AdapterView.OnItemSe
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         et_Gender.setAdapter(adapter);
         et_Gender.setOnItemSelectedListener(this);
+
+        findViewById(R.id.datePickerButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDatePickerDialog();
+            }
+        });
 
 
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -80,20 +91,31 @@ public class Activity3 extends AppCompatActivity implements AdapterView.OnItemSe
 
                 else {
                     try {
-                        residentArrayList.add(creatResident());
+                        //residentArrayList.add(creatResident());
+                        Boolean success = dbHandler.addOne(creatResident());
+                        Toast.makeText(Activity3.this, "Success: " + success, Toast.LENGTH_SHORT).show();
+
                     } catch (ParseException e) {
                         e.printStackTrace();
+
                     }
-                        accessActivity4();
+                       accessActivity4();
 
                 }
             }
         });
     }
 
+    private void showDatePickerDialog() {
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, this, Calendar.getInstance().get(Calendar.YEAR),
+                Calendar.getInstance().get(Calendar.MONTH),
+                Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.show();
+    }
+
     private void accessActivity4() {
         Intent intent = new Intent (this,Activity4.class);
-        intent.putExtra("resident", residentArrayList);
+        //intent.putExtra("resident", residentArrayList);
         startActivity(intent);
     }
 
@@ -120,5 +142,11 @@ public class Activity3 extends AppCompatActivity implements AdapterView.OnItemSe
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        String date = dayOfMonth + "/" + month + "/" + year;
+        etDOB.setText(date);
     }
 }
