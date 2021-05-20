@@ -77,11 +77,11 @@ public class Activity2 extends AppCompatActivity {
             e.printStackTrace();
         }
         demoThree.setBmi(Calculation.bmiCalculator(demoThree.getWeight(),demoThree.getHeight()));
-        dbHandler.addOne(demo);
+        dbHandler.addOne(demoThree);
         dbHandler.addOne(demoTwo);
         try {
 
-            boolean success = dbHandler.addOne(demoThree);
+            boolean success = dbHandler.addOne(demo);
             Toast.makeText(Activity2.this, "Success: " + success, Toast.LENGTH_SHORT).show();
         }
         catch (Exception e){

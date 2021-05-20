@@ -43,16 +43,14 @@ public class Activity3Test {
         activity3 = activityActivityTestRule.getActivity();
         firstName = "TestFN";
         lastName = "TestLN";
-        weight = 80;
-        height = 170;
     }
 
     @Test
     public  void  testCreatingResident(){
         onView(withId(R.id.et_firstName)).perform(typeText(firstName));
         onView(withId(R.id.et_lastName)).perform(typeText(lastName));
-        onView(withId(R.id.et_height)).perform(typeText(String.valueOf(height)));
-        onView(withId(R.id.et_weight)).perform(typeText(String.valueOf(weight)));
+        onView(withId(R.id.et_height)).perform(typeText(String.valueOf("170")));
+        onView(withId(R.id.et_weight)).perform(typeText(String.valueOf("80")));
 
         onView(withId(R.id.et_gender))
                 .perform(click());
@@ -70,6 +68,17 @@ public class Activity3Test {
         onView(withId(R.id.activity4_Layout)).check(matches(isDisplayed()));
 
     }
+
+    @Test
+    public  void  testCreateButton(){
+
+
+        closeSoftKeyboard();
+        onView(withId(R.id.submitButton)).perform(click());
+        onView(withId(R.id.activity3_Layout)).check(matches(isDisplayed()));
+
+    }
+
 
     @After
     public void tearDown() throws Exception {

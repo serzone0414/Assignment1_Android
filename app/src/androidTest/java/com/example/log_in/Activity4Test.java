@@ -31,13 +31,7 @@ public class Activity4Test {
         activity4 = activityActivityTestRule.getActivity();
     }
 
-    @Test
-    public  void  test_selectResidentFromList(){
 
-        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).perform(click());
-        onView(withId(R.id.activity5_Layout)).check(matches(isDisplayed()));
-
-    }
 
 
     @Test
@@ -47,12 +41,15 @@ public class Activity4Test {
         onView(withId(R.id.activity7_Layout)).check(matches(isDisplayed()));
     }
 
-
     @Test
-    public  void  test_Activity5Delete(){
+    public  void  test_Activity5QuestionairToActivity8(){
         onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).perform(click());
-        onView(withId(R.id.deleteResidentButton)).perform(click());
-        onView(withId(R.id.activity4_Layout)).check(matches(isDisplayed()));
+        onView(withId(R.id.questionair)).perform(click());
+
+        for (int i = 0 ; i < 16; i++) {
+            onView(withId(R.id.choiceYes)).perform(click());
+        }
+        onView(withId(R.id.activity8_Layout)).check(matches(isDisplayed()));
     }
 
     @Test
@@ -68,6 +65,22 @@ public class Activity4Test {
         onView(withId(R.id.details)).perform(click());
         onView(withId(R.id.activity6_Layout)).check(matches(isDisplayed()));
     }
+
+    @Test
+    public  void  test_selectResidentFromList(){
+
+        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).perform(click());
+        onView(withId(R.id.activity5_Layout)).check(matches(isDisplayed()));
+
+    }
+
+    @Test
+    public  void  test_Activity5Delete(){
+        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(1).perform(click());
+        onView(withId(R.id.deleteResidentButton)).perform(click());
+        onView(withId(R.id.activity4_Layout)).check(matches(isDisplayed()));
+    }
+
 
     @After
     public void tearDown() throws Exception {
