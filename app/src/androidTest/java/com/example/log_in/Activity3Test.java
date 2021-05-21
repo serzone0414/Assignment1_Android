@@ -18,6 +18,8 @@ import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.contrib.PickerActions.setDate;
+import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -47,8 +49,19 @@ public class Activity3Test {
 
     @Test
     public  void  testCreatingResident(){
+
+
         onView(withId(R.id.et_firstName)).perform(typeText(firstName));
         onView(withId(R.id.et_lastName)).perform(typeText(lastName));
+
+        onView(withId(R.id.datePickerButton)).perform(click());
+        onView(isAssignableFrom(DatePicker.class)).perform(setDate(1970, 11, 15));
+        onView(withId(android.R.id.button1)).perform(click());
+
+        // Old codes did not work:
+        //onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(setDate(year, month, day));
+
+
         onView(withId(R.id.et_height)).perform(typeText(String.valueOf("170")));
         onView(withId(R.id.et_weight)).perform(typeText(String.valueOf("80")));
 
@@ -57,11 +70,6 @@ public class Activity3Test {
         onData(hasToString(startsWith("Male")))
                 .perform(click());
 
-        int year = 1970;
-        int month = 11;
-        int day = 15;
-        onView(withId(R.id.datePickerButton)).perform(click());
-        onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(year, month, day));
 
         closeSoftKeyboard();
         onView(withId(R.id.submitButton)).perform(click());

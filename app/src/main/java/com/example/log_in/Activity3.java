@@ -90,6 +90,7 @@ public class Activity3 extends AppCompatActivity implements AdapterView.OnItemSe
                 }
 
                 else {
+
                     try {
                         //residentArrayList.add(creatResident());
                         Boolean success = dbHandler.addOne(creatResident());
@@ -99,7 +100,7 @@ public class Activity3 extends AppCompatActivity implements AdapterView.OnItemSe
                         e.printStackTrace();
 
                     }
-                       accessActivity4();
+                      accessActivity4();
 
                 }
             }
