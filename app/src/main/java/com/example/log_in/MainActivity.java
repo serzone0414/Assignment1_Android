@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.concurrent.Executor;
 
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     TextView registerLink;
     Toolbar toolbar;
     Account demo = new Account("Admin","1234");
+    DbHandler dbHandler = new DbHandler(MainActivity.this);
 
 
     @Override
@@ -107,7 +109,8 @@ public class MainActivity extends AppCompatActivity {
 
         for (int i = 0; i < accountList.size(); i++) {
             if (userName.equals(accountList.get(i).getUsername()) && (userPassword.equals(accountList.get(i).getPassword()))) {
-                Intent intent = new Intent(this, Activity2.class);
+                createDemoResidents();
+                Intent intent = new Intent(this, MenuActivity.class);
                 startActivity(intent);
                 correctAccount = true;
             }
@@ -118,15 +121,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-        private void printAllAccounts ()
-        {
-            DbHandler dbHandler = new DbHandler(MainActivity.this);
-            List<Account> accountList = dbHandler.getAllAccounts();
-            for(int i = 0 ; i < accountList.size(); i ++)
-            {
-                Toast.makeText(MainActivity.this, accountList.get(i).getUsername(), Toast.LENGTH_SHORT).show();
 
+        private void createDemoResidents()
+        {
+            Resident demo = new Resident("Bob", "Smith (Demo - Low Age)", "01/01/1970", 80, 175, "Male");
+            try {
+                demo.setAge(Calculation.ageCalculator(demo.getDateOfBirth()));
+            } catch (ParseException e) {
+                e.printStackTrace();
             }
+            demo.setBmi(Calculation.bmiCalculator(demo.getWeight(),demo.getHeight()));
+
+            Resident demoTwo = new Resident("Merry", "Kerr (Demo - High BMI)", "01/01/1950", 140, 169, "Female");
+            try {
+                demoTwo.setAge(Calculation.ageCalculator(demoTwo.getDateOfBirth()));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            demoTwo.setBmi(Calculation.bmiCalculator(demoTwo.getWeight(),demoTwo.getHeight()));
+
+            Resident demoThree = new Resident("Tony", "Lee (Demo - Acceptable resident)", "01/01/1950", 75, 172, "Male");
+            try {
+                demoThree.setAge(Calculation.ageCalculator(demoThree.getDateOfBirth()));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            demoThree.setBmi(Calculation.bmiCalculator(demoThree.getWeight(),demoThree.getHeight()));
+            dbHandler.addOne(demoThree);
+            dbHandler.addOne(demoTwo);
+            dbHandler.addOne(demo);
 
         }
     }

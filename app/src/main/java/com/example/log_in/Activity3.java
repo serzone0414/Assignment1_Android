@@ -100,7 +100,7 @@ public class Activity3 extends AppCompatActivity implements AdapterView.OnItemSe
                         e.printStackTrace();
 
                     }
-                      accessActivity4();
+                      accessMenuActivity();
 
                 }
             }
@@ -114,8 +114,8 @@ public class Activity3 extends AppCompatActivity implements AdapterView.OnItemSe
         datePickerDialog.show();
     }
 
-    private void accessActivity4() {
-        Intent intent = new Intent (this,Activity4.class);
+    private void accessMenuActivity() {
+        Intent intent = new Intent (this,MenuActivity.class);
         //intent.putExtra("resident", residentArrayList);
         startActivity(intent);
     }

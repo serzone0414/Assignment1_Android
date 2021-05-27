@@ -75,15 +75,15 @@ public class Activity5 extends AppCompatActivity {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                accessActivity4(resident);
+                accessMenuActivity(resident);
             }
         });
     }
 
-    private void accessActivity4(Resident resident) {
+    private void accessMenuActivity(Resident resident) {
         dbHandler.deleteUser(resident);
         Toast.makeText(Activity5.this, "Resident deleted", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this,Activity4.class);
+        Intent intent = new Intent(this,MenuActivity.class);
         startActivity(intent);
     }
 
