@@ -1,5 +1,6 @@
 package com.example.log_in;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -81,10 +82,19 @@ public class Activity5 extends AppCompatActivity {
     }
 
     private void accessMenuActivity(Resident resident) {
-        dbHandler.deleteUser(resident);
-        Toast.makeText(Activity5.this, "Resident deleted", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this,MenuActivity.class);
-        startActivity(intent);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Caution");
+        builder.setMessage("Are you sure to delete this resident?");
+        builder.setPositiveButton("Yes", (dialog, which) -> {
+            dbHandler.deleteUser(resident);
+            Toast.makeText(Activity5.this, "Resident deleted", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this,MenuActivity.class);
+            startActivity(intent);
+        });
+        builder.setNegativeButton("No", (dialog, which) -> {
+
+        });
+        builder.create().show();
     }
 
     private void accessActivity9(Resident resident) {
