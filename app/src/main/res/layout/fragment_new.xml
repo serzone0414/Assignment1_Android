@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent"
@@ -10,18 +10,198 @@
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"
         android:backgroundTint="@color/deep_orange"
-        android:text="New Resident"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:text="New Resident"/>
+
 
     <TextView
+        android:id="@+id/ResidentFormTitle"
+        android:layout_width="match_parent"
+        android:layout_marginTop="25dp"
+        android:textSize="30dp"
+        android:textColor="@color/grey"
+        android:layout_height="50dp"
+        android:textStyle="bold"
+        android:text="New Resident Form" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:text="Fist name:"
+        android:id="@+id/FirstName"
+        android:layout_below="@+id/ResidentFormTitle"
+        android:layout_marginLeft="50dp"
+        android:textSize="20dp"/>
+
+
+
+    <EditText
+        android:layout_width="170dp"
+        android:layout_toRightOf="@+id/FirstName"
+        android:layout_height="40dp"
+        android:id="@+id/fg_et_firstName"
+        android:maxLines="1"
+        android:hint="e.g. Joeseph"
+        android:padding="10dp"
+        android:layout_marginTop="90dp"
+        android:inputType="textPersonName"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:text="Last name:   "
+        android:id="@+id/LastName"
+        android:layout_below="@+id/FirstName"
+        android:textSize="20dp"/>
+
+    <EditText
+        android:layout_width="170dp"
+        android:layout_below="@+id/fg_et_firstName"
+        android:layout_height="40dp"
+        android:id="@+id/fg_et_lastName"
+        android:hint="e.g. Smith"
+        android:layout_gravity="center"
+        android:maxLines="1"
+        android:layout_toRightOf="@+id/LastName"
+        android:padding="10dp"
+        android:inputType="textPersonName"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"/>
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp"
+        android:text="Date of birth:"
+        android:id="@+id/DateOfBirth"
+        android:layout_below="@+id/LastName"
+        android:textSize="20dp"/>
+
+
+    <TextView
+        android:layout_width="170dp"
+        android:layout_height="40dp"
+        android:id="@+id/fg_et_DOB"
+        android:layout_toRightOf="@+id/DateOfBirth"
+        android:layout_below="@+id/fg_et_lastName"
+        android:maxLines="1"
+        android:padding="10dp"
+        android:textSize="18dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black"
+        android:background="@color/white"/>
+
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="new page here"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:src="@drawable/calendaricon"
+        android:layout_toRightOf="@+id/DateOfBirth"
+        android:layout_below="@+id/fg_et_lastName"
+        android:layout_marginTop="19dp"
+        android:layout_marginLeft="125dp"
+        android:id="@+id/fg_datePickerButton"/>
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:text="Weight:"
+        android:id="@+id/fg_Weight"
+        android:layout_below="@+id/DateOfBirth"
+        android:textSize="20dp"/>
+
+    <EditText
+        android:layout_width="170dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/fg_et_DOB"
+        android:id="@+id/fg_et_weight"
+        android:hint="in kg"
+        android:layout_gravity="center"
+        android:maxLines="1"
+        android:padding="10dp"
+        android:layout_toRightOf="@+id/fg_Weight"
+        android:inputType="number"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"/>
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:text="Height:"
+        android:id="@+id/fg_Height"
+        android:layout_below="@+id/fg_Weight"
+        android:textSize="20dp"/>
+
+    <EditText
+        android:layout_width="170dp"
+        android:layout_height="40dp"
+        android:id="@+id/fg_et_height"
+        android:maxLines="1"
+        android:hint="in cm"
+        android:layout_gravity="center"
+        android:layout_below="@+id/fg_et_weight"
+        android:layout_toRightOf="@+id/fg_Height"
+        android:padding="10dp"
+        android:inputType="number"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"/>
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:text="Gender:"
+        android:id="@+id/fg_Gender"
+        android:layout_below="@+id/fg_Height"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:layout_width="170dp"
+        android:layout_height="40dp"
+        android:id="@+id/fg_GenderEditBox"
+        android:maxLines="1"
+        android:layout_gravity="center"
+        android:layout_below="@+id/fg_Height"
+        android:layout_toRightOf="@+id/fg_Height"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"/>
+
+
+    <Spinner
+        android:id="@+id/fg_et_gender"
+        android:layout_width="170dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/fg_et_height"
+        android:layout_marginTop="25dp"
+        android:layout_toRightOf="@+id/fg_Gender" />
+
+    <Button
+        android:id="@+id/fg_submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fg_et_gender"
+        android:text="Submit"
+        android:gravity="center"
+        android:layout_marginTop="90dp"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/deep_orange"
+        android:layout_centerHorizontal="true"
+        />
+
+
+
+</RelativeLayout>

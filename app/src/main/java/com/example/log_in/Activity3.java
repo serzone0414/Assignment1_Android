@@ -147,7 +147,8 @@ public class Activity3 extends AppCompatActivity implements AdapterView.OnItemSe
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        String date = dayOfMonth + "/" + month + "/" + year;
+        int newMonth = month + 1;
+        String date = dayOfMonth + "/" + newMonth + "/" + year;
         etDOB.setText(date);
     }
 }
