@@ -37,7 +37,6 @@ public class NewFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         dbHandler = new DbHandler(getActivity());
 
-
     }
 
     @Nullable
@@ -72,8 +71,15 @@ public class NewFragment extends Fragment {
         view.findViewById(R.id.fg_datePickerButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDatePickerDialog();
+                //showDatePickerDialog();
+                final Calendar c = Calendar.getInstance();
+                int mYear = c.get(Calendar.YEAR);
+                int mMonth = c.get(Calendar.MONTH);
+                int mDay = c.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog dateDialog = new DatePickerDialog(getActivity(), datePickerListener,mYear,mMonth,mDay);
+                dateDialog.show();
             }
+
         });
 
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -136,19 +142,6 @@ public class NewFragment extends Fragment {
         startActivity(intent);
     }
 
-    private void showDatePickerDialog() {
-        DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), (DatePickerDialog.OnDateSetListener) getParentFragment(), Calendar.getInstance().get(Calendar.YEAR),
-                Calendar.getInstance().get(Calendar.MONTH),
-                Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
-        datePickerDialog.show();
-        int dayOfMonth = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-        int newMonth =  Calendar.getInstance().get(Calendar.MONTH) + 1;
-        int year = Calendar.getInstance().get(Calendar.YEAR);
-        String date = dayOfMonth + "/" + newMonth + "/" + year;
-        etDOB.setText(date);
-
-    }
-
     private void accessMenuActivity() {
         Intent intent = new Intent (getActivity(),MenuActivity.class);
         //intent.putExtra("resident", residentArrayList);
@@ -170,4 +163,12 @@ public class NewFragment extends Fragment {
     }
 
 
+    private DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
+
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            String dateYouChoosed = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year;
+            etDOB.setText(dateYouChoosed );
+        }
+    };
 }
