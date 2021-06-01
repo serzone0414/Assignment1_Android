@@ -105,6 +105,7 @@ public class ListFragment extends Fragment implements SearchView.OnQueryTextList
         Resident resident = residentArrayList.get(i);
         intent.putExtra("resident", resident);
         startActivity(intent);
+
     }
 
     @Override

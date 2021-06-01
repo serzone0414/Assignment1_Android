@@ -118,6 +118,7 @@ public class Activity3 extends AppCompatActivity implements AdapterView.OnItemSe
         Intent intent = new Intent (this,MenuActivity.class);
         //intent.putExtra("resident", residentArrayList);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     private Resident creatResident() throws ParseException {
@@ -150,5 +151,11 @@ public class Activity3 extends AppCompatActivity implements AdapterView.OnItemSe
         int newMonth = month + 1;
         String date = dayOfMonth + "/" + newMonth + "/" + year;
         etDOB.setText(date);
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 }

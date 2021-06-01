@@ -1,5 +1,6 @@
 package com.example.log_in;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -95,6 +96,7 @@ public class Activity6 extends AppCompatActivity {
             public void onClick(View v) {
                 updateResidentDetails(resident);
                 updateResidentDataBase(resident);
+                accessMenuActivity();
             }
         });
 
@@ -138,6 +140,19 @@ public class Activity6 extends AppCompatActivity {
             //accountDbHandler.addOne(failedAccount);
         }
 
+    }
+
+    private void accessMenuActivity() {
+
+            Intent intent = new Intent(this,MenuActivity.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
 }

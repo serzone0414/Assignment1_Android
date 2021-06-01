@@ -37,4 +37,10 @@ public class Activity8 extends AppCompatActivity {
             result_txt.setText("The resident will be admitted under Rest-home care.");
         }
     }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
 }

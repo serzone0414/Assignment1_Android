@@ -97,10 +97,17 @@ public class Activity7 extends AppCompatActivity {
         Toast.makeText(Activity7.this, "Quit", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent (this, Activity4.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     private void updateScore(int mScore) {
         mScoreView.setText("" + mScore);
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
 }

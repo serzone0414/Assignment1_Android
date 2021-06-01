@@ -3,14 +3,22 @@ package com.example.log_in;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.app.Activity;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.pdf.PdfDocument;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -27,6 +35,7 @@ public class Activity9 extends AppCompatActivity {
     Button createPdfButton;
     Resident resident;
     String[] informationArray = new String[] {"Name", "Age","BMI","Contact"};
+    NotificationManagerCompat notificationManagerCompat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,15 +48,26 @@ public class Activity9 extends AppCompatActivity {
         createPdfButton = (Button) findViewById(R.id.createPdfButton);
         et_note=(EditText) findViewById(R.id.et_note);
 
-        ActivityCompat.requestPermissions(Activity9.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
+        notificationManagerCompat = NotificationManagerCompat.from(this);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            NotificationChannel channel = new NotificationChannel("My Notification","My Notification", NotificationManager.IMPORTANCE_LOW);
+            NotificationManager manager  = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+
+        //ActivityCompat.requestPermissions(Activity9.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
 
 
         createPdfButton.setOnClickListener(new View.OnClickListener() {
+
+
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
                 createPDF(resident);
+                sendOnChannel();
             }
+
 
         });
 
@@ -121,7 +141,8 @@ public class Activity9 extends AppCompatActivity {
         myPdfDocument.finishPage(myPage1);
 
 
-        //String myFilePath = Environment.getExternalStorageDirectory().getPath() + "/myPDFFile.pdf";
+        //String myFilePath = Environment.getExternalStorageDirectory().getPath();
+        //File myFile = new File (myFilePath,resident.getFirstName()+" 's Info.pdf");
 
         File myFile = new File (getExternalFilesDir(null),resident.getFirstName()+" 's Info.pdf");
 
@@ -138,7 +159,30 @@ public class Activity9 extends AppCompatActivity {
 
     }
 
+    private  void sendOnChannel(){
+        //Intent intent = new Intent();
+        //Uri pathUri= Uri.parse(getExternalFilesDir(null).toString());
+        //Uri pathUri= Uri.parse(getExternalFilesDir(null).toString());
+        //intent.setAction(Intent.ACTION_GET_CONTENT);
+        //intent.setDataAndType(pathUri,"folder");
+        //PendingIntent resultPendingItent = PendingIntent.getActivity(this, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(Activity9.this,"My Notification");
+        builder.setContentTitle("PDF file created");
+        builder.setContentText("file location: Phone/Android/data/com.example.log_in/Files");
+        builder.setSmallIcon(R.drawable.ic_baseline_picture_as_pdf_24);
+        //builder.setContentIntent(resultPendingItent);
+        builder.setAutoCancel(true);
+        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(Activity9.this);
+        managerCompat.notify(1,builder.build());
+
+    }
 
 
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
 
 }

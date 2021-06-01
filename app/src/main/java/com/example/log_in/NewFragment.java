@@ -71,7 +71,6 @@ public class NewFragment extends Fragment {
         view.findViewById(R.id.fg_datePickerButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //showDatePickerDialog();
                 final Calendar c = Calendar.getInstance();
                 int mYear = c.get(Calendar.YEAR);
                 int mMonth = c.get(Calendar.MONTH);
@@ -113,7 +112,6 @@ public class NewFragment extends Fragment {
                 else {
 
                     try {
-                        //residentArrayList.add(creatResident());
                         Boolean success = dbHandler.addOne(creatResident());
                         Toast.makeText(getActivity(), "Success: " + success, Toast.LENGTH_SHORT).show();
 
@@ -144,7 +142,6 @@ public class NewFragment extends Fragment {
 
     private void accessMenuActivity() {
         Intent intent = new Intent (getActivity(),MenuActivity.class);
-        //intent.putExtra("resident", residentArrayList);
         startActivity(intent);
     }
 

@@ -90,6 +90,7 @@ public class Activity5 extends AppCompatActivity {
             Toast.makeText(Activity5.this, "Resident deleted", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this,MenuActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         });
         builder.setNegativeButton("No", (dialog, which) -> {
 
@@ -101,25 +102,33 @@ public class Activity5 extends AppCompatActivity {
         Intent intent = new Intent(this,Activity9.class);
         intent.putExtra("resident", resident);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     private void accessActivity6(Resident resident){
         Intent intent = new Intent(this,Activity6.class);
         intent.putExtra("resident", resident);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     private void accessActivity7(){
 
             Intent intent = new Intent(this, Activity7.class);
             startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     private void accessActivity8() {
         Intent intent = new Intent (this,Activity8.class);
         intent.putExtra("score", 1000);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
-
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
 }
