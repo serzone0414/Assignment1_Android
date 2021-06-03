@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:id="@+id/activity5_Layout"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/background_i"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     tools:context=".Activity5">
 
