@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 public class Activity8 extends AppCompatActivity {
     private int score;
-    TextView score_txt, result_txt;
+    TextView result_txt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,8 +16,6 @@ public class Activity8 extends AppCompatActivity {
 
         Intent intent = getIntent();
         score = (int) intent.getSerializableExtra("score");
-        score_txt = findViewById(R.id.score_text);
-        score_txt.setText("score is : " + String.valueOf(score));
         result_txt = findViewById(R.id.result_txt);
 
         getResult(score);

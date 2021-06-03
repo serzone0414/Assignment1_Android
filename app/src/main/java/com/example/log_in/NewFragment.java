@@ -24,7 +24,6 @@ import java.text.ParseException;
 import java.util.Calendar;
 
 public class NewFragment extends Fragment {
-    Button newResidentButton;
     EditText etFirstName, etLastName, etWeight ,etHeight;
     TextView etDOB;
     Button submitButton;
@@ -125,20 +124,9 @@ public class NewFragment extends Fragment {
             }
         });
 
-        newResidentButton = view.findViewById(R.id.fg_newResidentButtton);
-        newResidentButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                accessActivity3();
-            }
-        });
         return view;
     }
 
-    private void accessActivity3() {
-        Intent intent = new Intent( getActivity(),Activity3.class);
-        startActivity(intent);
-    }
 
     private void accessMenuActivity() {
         Intent intent = new Intent (getActivity(),MenuActivity.class);

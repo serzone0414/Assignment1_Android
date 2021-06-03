@@ -31,7 +31,7 @@ public class Activity7 extends AppCompatActivity {
         mButtonYes = (Button) findViewById(R.id.choiceYes);
         mButtonNo = (Button) findViewById(R.id.choiceNo);
         mButtonQuit = (Button) findViewById(R.id.choiceQuit);
-
+        updateScore(mQuesntionNumber);
         updateQuestion();
 
 
@@ -53,9 +53,7 @@ public class Activity7 extends AppCompatActivity {
                 {
                     mScore = mScore + 1;
                 }
-                updateScore(mScore);
                 updateQuestion();
-               // Toast.makeText(Activity7.this, "YES", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -63,14 +61,13 @@ public class Activity7 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 updateQuestion();
-                //Toast.makeText(Activity7.this, "NO", Toast.LENGTH_SHORT).show();
             }
         });
 
         mButtonQuit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                accessActivity4();
+                accessMenuActivity();
             }
         });
     }
@@ -84,8 +81,10 @@ public class Activity7 extends AppCompatActivity {
         else {
             mQuesntionView.setText(mQuestionLibrary.getQuestion(mQuesntionNumber));
             mQuesntionNumber++;
+            updateScore(mQuesntionNumber);
         }
-    }
+        }
+
 
     private void accessActivity8() {
         Intent intent = new Intent (this,Activity8.class);
@@ -93,15 +92,15 @@ public class Activity7 extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void accessActivity4() {
+    public void accessMenuActivity() {
         Toast.makeText(Activity7.this, "Quit", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent (this, Activity4.class);
+        Intent intent = new Intent (this, MenuActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
-    private void updateScore(int mScore) {
-        mScoreView.setText("" + mScore);
+    private void updateScore(int mQuesntionNumber) {
+        mScoreView.setText("Question: " + mQuesntionNumber + "/16");
     }
 
     @Override

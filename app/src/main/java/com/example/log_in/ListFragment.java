@@ -25,7 +25,6 @@ import java.util.List;
 
 public class ListFragment extends Fragment implements SearchView.OnQueryTextListener {
 
-    Button fg_newResidentButton, fg_existResident;
     ListView listView;
     ArrayList<String> nameList = new ArrayList<>();
     List<Resident> residentArrayList;
@@ -65,39 +64,7 @@ public class ListFragment extends Fragment implements SearchView.OnQueryTextList
 
         });
 
-        fg_newResidentButton = (Button) view.findViewById(R.id.fg_newResident);
-        fg_existResident = (Button) view.findViewById(R.id.fg_existResident);
-
-
-        fg_newResidentButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                accessActivity3();
-            }
-        });
-
-        fg_existResident.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                accessActivity4();
-            }
-        });
-
         return view;
-    }
-    private void accessActivity3() {
-        Intent intent = new Intent( getActivity(),Activity3.class);
-        //intent.putExtra("resident", residentArrayList);
-        startActivity(intent);
-    }
-
-    private void accessActivity4(){
-        //Those codes under are only for creating few demo residents
-
-        // Access to Activity 4
-        Intent intent = new Intent(getActivity(),Activity4.class);
-        //intent.putExtra("resident", residentArrayList);
-        startActivity(intent);
     }
 
     public void accessActivity5(List<Resident> residentArrayList,int i) {

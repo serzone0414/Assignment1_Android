@@ -19,15 +19,6 @@
         android:padding="8dp"
         android:layout_marginBottom="40dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Score"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:textSize="20sp"
-            android:layout_alignParentLeft="true"
-            android:id="@+id/score_text"/>
 
         <TextView
             android:layout_width="wrap_content"
