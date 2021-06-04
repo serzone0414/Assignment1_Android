@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 public class Resident implements Serializable {
 
-
     private int residentID;
     private String firstName;
     private String lastName;
@@ -34,7 +33,6 @@ public class Resident implements Serializable {
     private String EPOAfamilyContact;
     private String leisure;
     private String pharmacy;
-
 
     public Resident() {
         NHI = "Null";

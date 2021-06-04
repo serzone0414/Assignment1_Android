@@ -34,7 +34,6 @@ public class Activity6 extends AppCompatActivity {
             et_leisure,
             et_pharmacy;
     Button detailConfirmButton;
-    //Button createPdfButton;
     Resident resident;
     DbHandler dbHandler = new DbHandler(Activity6.this);
 
@@ -67,7 +66,6 @@ public class Activity6 extends AppCompatActivity {
         et_leisure =  (EditText) findViewById(R.id.et_leisure);
         et_pharmacy = (EditText) findViewById(R.id.et_pharmacy);
         detailConfirmButton = (Button) findViewById(R.id.detailsConfirmButton);
-        //createPdfButton = (Button) findViewById(R.id.createPdfButton);
 
         ActivityCompat.requestPermissions(Activity6.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
 
@@ -124,7 +122,6 @@ public class Activity6 extends AppCompatActivity {
         resident.setEPOAfamilyContact(et_EPOAfamilyContact.getText().toString());
         resident.setLeisure(et_leisure.getText().toString());
         resident.setPharmacy(et_pharmacy.getText().toString());
-        //Toast.makeText(Activity6.this, "Updated" + resident.getGP(), Toast.LENGTH_LONG).show();
     }
 
     private  void updateResidentDataBase(Resident resident)
@@ -136,8 +133,6 @@ public class Activity6 extends AppCompatActivity {
         }
         catch (Exception e){
             Toast.makeText(Activity6.this, "Error updating resident", Toast.LENGTH_SHORT).show();
-            //Account failedAccount = new Account("Error","Error");
-            //accountDbHandler.addOne(failedAccount);
         }
 
     }

@@ -32,7 +32,7 @@ import java.io.FileOutputStream;
 
 public class Activity9 extends AppCompatActivity {
     EditText et_note;
-    Button createPdfButton;
+    Button createPdfButton, goBackButton;
     Resident resident;
     String[] informationArray = new String[] {"Name", "Age","BMI","Contact"};
     NotificationManagerCompat notificationManagerCompat;
@@ -46,6 +46,7 @@ public class Activity9 extends AppCompatActivity {
         Resident resident = (Resident) intent.getSerializableExtra("resident");
 
         createPdfButton = (Button) findViewById(R.id.createPdfButton);
+        goBackButton = (Button) findViewById(R.id.goBackButton);
         et_note=(EditText) findViewById(R.id.et_note);
 
         notificationManagerCompat = NotificationManagerCompat.from(this);
@@ -59,16 +60,19 @@ public class Activity9 extends AppCompatActivity {
 
 
         createPdfButton.setOnClickListener(new View.OnClickListener() {
-
-
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
                 createPDF(resident);
                 sendOnChannel();
             }
+        });
 
-
+        goBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                accessMenuActivity();
+            }
         });
 
     }
@@ -185,4 +189,10 @@ public class Activity9 extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
+    private void accessMenuActivity() {
+
+        Intent intent = new Intent(this,MenuActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
 }

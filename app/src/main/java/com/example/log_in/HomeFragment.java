@@ -14,11 +14,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class HomeFragment extends Fragment {
-
-
-
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -26,7 +21,6 @@ public class HomeFragment extends Fragment {
         View myView = inflater.inflate(R.layout.fragment_home,container,false);
 
         WebView myWebView = myView.findViewById(R.id.webView);
-        //webView = (WebView) webView.findViewById(R.id.webView);
         myWebView.setWebViewClient(new WebViewClient());
         myWebView.loadUrl("https://www.arvida.co.nz");
         WebSettings webSettings = myWebView.getSettings();

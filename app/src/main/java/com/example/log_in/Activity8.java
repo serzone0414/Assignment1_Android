@@ -4,11 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class Activity8 extends AppCompatActivity {
     private int score;
     TextView result_txt;
+    FloatingActionButton floatingActionButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +21,14 @@ public class Activity8 extends AppCompatActivity {
         Intent intent = getIntent();
         score = (int) intent.getSerializableExtra("score");
         result_txt = findViewById(R.id.result_txt);
+        floatingActionButton = findViewById(R.id.floatingActionButton);
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                accessMenuActivity();
+            }
+        });
 
         getResult(score);
     }
@@ -40,5 +52,12 @@ public class Activity8 extends AppCompatActivity {
     public void finish() {
         super.finish();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
+
+    private void accessMenuActivity() {
+
+        Intent intent = new Intent(this,MenuActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 }
