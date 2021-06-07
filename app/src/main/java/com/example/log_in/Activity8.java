@@ -35,16 +35,16 @@ public class Activity8 extends AppCompatActivity {
 
     private void getResult( int score) {
         if (score >= 1000) {
-            result_txt.setText("We will not admit this resident, because the facility does not have  the equipments for the residernt needs.");
+            result_txt.setText("We will not admit this resident, because the facility does not have  the equipments for the resident's needs.");
         }
         else if (score >= 100) {
-            result_txt.setText("The resident will be admitted under Dementia care.");
+            result_txt.setText("We will admit this resident. \nThe resident will be admitted under Dementia care.");
         }
         else if (score >= 10) {
-            result_txt.setText("The resident will be admitted under Hospital care.");
+            result_txt.setText("We will admit this resident. \nThe resident will be admitted under Hospital care.");
         }
         else {
-            result_txt.setText("The resident will be admitted under Rest-home care.");
+            result_txt.setText("We will admit this resident. \nThe resident will be admitted under Rest-home care.");
         }
     }
 

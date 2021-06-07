@@ -36,7 +36,7 @@ public class MainActivityTest {
         onView(withId(R.id.password)).perform(typeText(password));
         closeSoftKeyboard();
         onView(withId(R.id.button)).perform(click());
-        onView(withId(R.id.activity2_Layout)).check(matches(isDisplayed()));
+        onView(withId(R.id.menuActivity_Layout)).check(matches(isDisplayed()));
 
     }
 

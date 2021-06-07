@@ -129,31 +129,36 @@ public class MainActivity extends AppCompatActivity {
 
         private void createDemoResidents()
         {
-            Resident demo = new Resident("Bob", "Smith (Demo - Low Age)", "01/01/1970", 80, 175, "Male");
+            Resident demo = new Resident("Bob", "Smith", "01/01/1950", 80, 175, "Male");
             try {
                 demo.setAge(Calculation.ageCalculator(demo.getDateOfBirth()));
             } catch (ParseException e) {
                 e.printStackTrace();
             }
             demo.setBmi(Calculation.bmiCalculator(demo.getWeight(),demo.getHeight()));
+            demo.setPharmacy("Island Bay Pharmacy \nNumber: 04 3898395");
+            demo.setLeisure("Swiming");
+            demo.setEPOAfamilyContact("021 778 899");
+            demo.setNeedAssessors("No");
+            demo.setEquipment("Walking frame ");
+            demo.setDentures("No history recorded");
+            demo.setBehaviours("Normal");
+            demo.setFood("Dislike seafood");
+            demo.setConcerns("Struggle to sleep at night. Most of night sleep about 4 hours.");
+            demo.setPain("Left arm has minor pain when holding things for long time");
+            demo.setAllergies("Nothing, but try to void milk.");
+            demo.setCulturalConsideration("Lived in England for 20 years.");
+            demo.setWarfarin("Not used");
+            demo.setInsulin("15 units before each meal. \n10 units before bed.");
+            demo.setGP("Dr. Cath from NewTown Medical Centre." +
+                    "\nNumber: 04 383765234");
+            demo.setNHI("A8532567");
+            demo.setFalls("No history recorded");
+            demo.setWound("No history recorded");
+            demo.setMedication("Amlodipine Once daily at night" +
+                    " Albuterol Three times daily with food");
+            demo.setMedicalHistory("This resident has been on melatonin for the last 12 years.");
 
-            Resident demoTwo = new Resident("Merry", "Kerr (Demo - High BMI)", "01/01/1950", 140, 169, "Female");
-            try {
-                demoTwo.setAge(Calculation.ageCalculator(demoTwo.getDateOfBirth()));
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            demoTwo.setBmi(Calculation.bmiCalculator(demoTwo.getWeight(),demoTwo.getHeight()));
-
-            Resident demoThree = new Resident("Tony", "Lee (Demo - Acceptable resident)", "01/01/1950", 75, 172, "Male");
-            try {
-                demoThree.setAge(Calculation.ageCalculator(demoThree.getDateOfBirth()));
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            demoThree.setBmi(Calculation.bmiCalculator(demoThree.getWeight(),demoThree.getHeight()));
-            dbHandler.addOne(demoThree);
-            dbHandler.addOne(demoTwo);
             dbHandler.addOne(demo);
 
         }
