@@ -1,4 +1,3 @@
-# Assignment1_Android
 # SD6501_FinalAssignment
 Project Title:
 
@@ -6,13 +5,13 @@ Retirement home application
 
 Description:
 
-The flight managment software is desingned and implemented for the private airline company and their clients. 
-The flight mangamentmet software features the following. First, the users can select their destination of where they
-are traveling and where they are traveling. Second, users can choose one way to return flights and search for the 
-flight number, time, and prices. Third, the users can select the flights from the display listed, and once the flight 
-is selected user can view the flight details and the total price of their trip. Fourth, users can enter their passenger 
-details of title, first name, last name, and payment details after viewing the flight details and prices. Finally, once 
-the process listed above processes the flight ticket of passenger details and flight details are presented to the users.
+The Retirement home application is desgiend and implemented for the Retirement home Arivida.
+The main function of the application is to deal with all the resident details and make it easy to store and manage.
+It can add, update and remove the resident details from database also allows the user to create PDF file based on the resident.
+The website of retirement home is included into the application, it will be shown as the top menu page.
+Also user can use the application to determine that level of care the resident is belong to.
+
+
 
 Dependencies:
 
@@ -54,7 +53,6 @@ Exectuting program:
 12. "Questionair" is for determining the outcome for caring level of the resident. 
 
 Limiations:
-
 This application is built by students of class SD6512 at Weltec as a project based on the ideas of managing residents details for a retirement home.
 The software still requires professional approval and not ready for the real world use.
 In the current stage of the application you can enter all the details. However, all the data are saved only into the phone and will not be uploaded online databse.
