@@ -5,7 +5,7 @@ Retirement home application
 
 Description:
 
-The Retirement home application is desgiend and implemented for the Retirement home Arivida.
+The Retirement home application is designed and implemented for the Retirement home Arivida.
 The main function of the application is to deal with all the resident details and make it easy to store and manage.
 It can add, update and remove the resident details from database also allows the user to create PDF file based on the resident.
 The website of retirement home is included into the application, it will be shown as the top menu page.
