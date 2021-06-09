@@ -112,7 +112,7 @@ public class NewFragment extends Fragment {
 
                     try {
                         Boolean success = dbHandler.addOne(creatResident());
-                        Toast.makeText(getActivity(), "Success: " + success, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "New resident created", Toast.LENGTH_SHORT).show();
 
                     } catch (ParseException e) {
                         e.printStackTrace();

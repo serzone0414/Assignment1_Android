@@ -129,7 +129,7 @@ public class Activity6 extends AppCompatActivity {
         try {
 
             boolean success = dbHandler.updateResidentDetail(resident);
-            Toast.makeText(Activity6.this, "Ressident details updated", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Activity6.this, "Resident details updated", Toast.LENGTH_SHORT).show();
         }
         catch (Exception e){
             Toast.makeText(Activity6.this, "Error updating resident", Toast.LENGTH_SHORT).show();

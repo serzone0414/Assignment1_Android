@@ -340,7 +340,6 @@ public class DbHandler extends SQLiteOpenHelper {
     }
 
     public void deleteUser(Resident resident){
-        //delete the resident from database
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_Resident,
                 KEY_RESIDENTID+" = ?",
